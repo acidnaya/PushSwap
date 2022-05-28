@@ -1,0 +1,31 @@
+SOURCES = push_swap.c
+SOURCES += stack.c
+SOURCES += stack2.c
+SOURCES += merge_sort.c
+SOURCES += atoi_stat.c
+SOURCES += quick_sort.c
+SOURCES += quick_help.c
+SOURCES += operations.c
+SOURCES += optimization.c
+SOURCES += message.c
+SOURCES += duplicate_check.c
+SOURCES += join_del.c
+SOURCES += parsing.c
+
+OBJECTS = $(SOURCES:.c=.o)
+
+NAME = push_swap
+
+all: $(NAME)
+
+$(NAME):
+	@gcc -c -Wall -Wextra -Werror push_swap.c
+	@gcc -o $(NAME) -Wall -Wextra -Werror $(SOURCES) -L. libft.a
+
+clean:
+	@rm -f push_swap.o
+
+fclean: clean
+	@rm -f $(NAME)
+
+re: fclean all
